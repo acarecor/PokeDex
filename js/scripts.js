@@ -41,7 +41,7 @@ function pokemonHeightCondition(item) {
 //  forEach loop that iterates over each element in the pokemonList inside the repository and use the function pokemonHeightCondition:
 
 
-(pokemonRepository.getAll()).forEach (pokemonHeightCondition); 
+(pokemonRepository.getAll()).forEach (pokemonRepositoryBlock); 
 
 function pokemonRepositoryBlock (item){
   let newElement = document.querySelector('.pokemon-list');
