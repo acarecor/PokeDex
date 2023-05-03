@@ -30,4 +30,17 @@ h1 {
     box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
     cursor: pointer;
     text-align: center;
+    transition-duration: 0.2s;
+    transition-property: opacity;
+}
+
+.button-class:hover,
+.button-class:focus {
+  opacity: 0.8;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.button-class:active {
+  background-color: rgb(33, 122, 205);
 }
