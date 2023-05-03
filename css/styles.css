@@ -17,3 +17,11 @@ p {
     padding: 20px;
     box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
+
+.button-class {
+    background-color: #d6d6d6;
+    margin: 10 auto;
+    padding: 20px;
+    box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
