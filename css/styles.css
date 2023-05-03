@@ -11,17 +11,23 @@ h1 {
     color: yellow;
 }
 
-p {
-    background-color: #d6d6d6;
-    margin: 10 auto;
-    padding: 20px;
-    box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
+.pokemon-list {
+    list-style-type:  none;
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    
 }
 
 .button-class {
     background-color: #d6d6d6;
-    margin: 10 auto;
-    padding: 20px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 10px auto;
+    padding: 20px 100px;
+    border-radius: 3px;
+    border: none;
     box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    text-align: center;
 }
