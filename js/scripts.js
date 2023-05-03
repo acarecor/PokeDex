@@ -56,7 +56,7 @@ pokemonRepository.add({ name: 'Pikachu', height: 1.04, type: ['electric'] });
 console.log(pokemonRepository.getAll());
 
 
-//  forEach loop that iterates over each element in the pokemonList inside the repository and use the function pokemonHeightCondition:
+//  forEach loop that iterates over each element in the pokemonList inside the repository and use the function addListItem
 
 
 (pokemonRepository.getAll()).forEach(function (pokemon) {
