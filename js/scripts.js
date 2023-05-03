@@ -17,9 +17,20 @@ let pokemonRepository = (function(){
     pokemonList.push(item)
   } 
 
+  function addListItem (pokemon){
+    let newElement = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listItem.appendChild(button);
+    newElement.appendChild(listItem);
+  
+  }
   return{
     add,
-    getAll
+    getAll,
+    addListItem
   };
 
 })();
@@ -41,17 +52,10 @@ function pokemonHeightCondition(item) {
 //  forEach loop that iterates over each element in the pokemonList inside the repository and use the function pokemonHeightCondition:
 
 
-(pokemonRepository.getAll()).forEach (pokemonRepositoryBlock); 
+(pokemonRepository.getAll()).forEach (function(pokemon) {
+   pokemonRepository.addListItem(pokemon);
+}); 
 
-function pokemonRepositoryBlock (item){
-  let newElement = document.querySelector('.pokemon-list');
-  let listItem = document.createElement('li');
-  let button = document.createElement('button');
-  button.innerText = 'pokemon Name';
-  button.classList.add('button-class');
-  listItem.appendChild(button);
-  newElement.appendChild(listItem);
 
-}
 
 
