@@ -16,7 +16,7 @@ let pokemonRepository = (function(){
   function add(item) {
     pokemonList.push(item)
   } 
-
+//addListItem: append the list (listItem) of  buttons (each of then content a single Pokemon)  to the parent Pokemon-list (ul)
   function addListItem (pokemon){
     let newElement = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
@@ -27,7 +27,7 @@ let pokemonRepository = (function(){
     newElement.appendChild(listItem); 
     button.addEventListener('click', () => showDetails(pokemon));
   }
-    
+  // function for the addEventListener to log the name of each pokemon in the console when clicked 
   function showDetails (pokemon){
     console.log(pokemon.name);
   }
@@ -46,15 +46,6 @@ let pokemonRepository = (function(){
 pokemonRepository.add({name:'Pikachu', height:1.04, type:['electric']});
 console.log(pokemonRepository.getAll());
 
-// conditional function of height of each pokemon
-function pokemonHeightCondition(item) {
-  if (item.height < 10 && item.height > 5) {
-    document.write(`<p> ${item.name} (height: ${item.height}) - Wow that's big! </p>`);
-  }
-  else {
-    document.write(`<p>${item.name} (height: ${item.height}) </p>`);
-  }
-}
 
 //  forEach loop that iterates over each element in the pokemonList inside the repository and use the function pokemonHeightCondition:
 
