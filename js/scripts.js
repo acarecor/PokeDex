@@ -2,11 +2,10 @@
 let pokemonRepository = (function () {
 
   //Adding a Pokemon List 
-  let pokemonList = [
-    { name: "Dragonite", height: 7, type: ['dragon', 'flying'] },
-    { name: "Amaura", height: 4, type: ['rock', 'ice'] },
-    { name: "Oricorio", height: 2, type: ['fire', 'flying'] }
-  ];
+  let pokemonList = [];
+  // link to the  data from an external source.
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150';
+
   // functions inside the pokemon repository:
   //getAll: return all items (pokemonRepository.getAll(); should return the pokemonList array)
   function getAll() {
@@ -16,9 +15,7 @@ let pokemonRepository = (function () {
   //conditional, that make sure can only add the passed argument of the function to pokemonList if it’s an object and validate the keys
   function add(item) {
     if (typeof pokemon === 'object' &&
-      typeof pokemon.name === 'string' &&
-      typeof pokemon.height === 'number' &&
-      'type' in pokekmon) {
+      typeof pokemon.name === 'string') {
       pokemonList.push(item)
     } else {
       console.log('pokemon is not correct')
