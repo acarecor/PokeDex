@@ -92,9 +92,15 @@ h1 {
   text-align: center;
   background-color: #fff;
   color: black;
+  text-transform: uppercase;
+  
 }
 
 .modal img{
   display: inline-block;
   width: auto;
+}
+
+.modal p {
+  text-align: center;
 }
