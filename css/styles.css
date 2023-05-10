@@ -1,21 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: white;
+    background-color: rgb(39, 92, 135);
     color: black;
     margin: 50px;
     height: 0 auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
 h1 {
     background-color: red;
-    color: yellow;
+    color: white;
 }
 
+
 .pokemon-list {
+    display: flexbox;
+    display: flex;
     list-style-type:  none;
     background-color: white;
-    margin: 0 auto;
+    margin: 20px auto;
+    padding: 20px;
     text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
     
 }
 
@@ -23,8 +35,8 @@ h1 {
     background-color: #d6d6d6;
     display: inline-block;
     font-size: 16px;
-    margin: 20px 10px auto;
-    padding: 20px 100px;
+    margin: 10px 10px;
+    padding: 20px 20px;
     border-radius: 3px;
     border: none;
     box-shadow: 4px 3px 3px 0 rgba(0, 0, 0, 0.3);
@@ -37,6 +49,7 @@ h1 {
 .button-class:hover,
 .button-class:focus {
   opacity: 0.8;
+  background-color: brown;
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -44,7 +57,7 @@ h1 {
 .button-class:active {
   background-color: rgb(33, 122, 205);
 }
-
+/*styles for the conteine*/
 #modal-container {
   display: none;
 }
@@ -58,8 +71,11 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+  /* to show it above other content*/
   z-index: 999;
+  /* to show it above other content */
   overflow: auto;
+  /* to center the modal */
   display: grid;
   text-align: center;
 }
@@ -103,4 +119,31 @@ h1 {
 
 .modal p {
   text-align: center;
+}
+
+ /* -------Media queries---------------------------------------------------- */
+  
+ @media all and (max-width: 500px) {
+
+  .pokemon-list {
+    width: auto;
+  }
+
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .pokemon-list {
+    width: auto;
+  }
+
+}
+
+@media all and (max-width: 750px) {
+
+
+  .pokemon-list {
+    width: auto;
+  }
+
+
 }
