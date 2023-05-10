@@ -5,9 +5,9 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   // link to the  data from an external source.
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150';
-
+  let modalContainer = document.querySelector('#modal-container');
   // functions inside the pokemon repository:
-  
+
   //getAll: return all items (pokemonRepository.getAll(); should return the pokemonList array)
   function getAll() {
     return pokemonList;
@@ -65,42 +65,49 @@ let pokemonRepository = (function () {
     newElement.appendChild(listItem);
     button.addEventListener('click', () => showDetails(pokemon));
   }
+
+
+  // modal that will contain the detail of each pokemon when it is selected 
+  function showModal(title, text, img) {
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button-close');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click');
+
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+
+    let contentElement = document.createElement('li');
+    contentElement.innerText = text;
+
+    let imageElement = document.createElement('img');
+    imageElement.setAttribute('src', img);
+    imageElement.setAttribute('width', '304');
+    imageElement.setAttribute('height', '228');
+    imageElement.setAttribute('alt', 'pokemon image');
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modal.appendChild(imageElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+
+  }
+  //remove the Modal 
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  
+
+
   // function for the addEventListener to log the name of each pokemon in the console when clicked 
   function showDetails(item) {
-    let modalContainer = document.querySelector('#modal-container');
-// modal that will contain the detail of each pokemon when it is selected 
-    function showModal(title, text, img) {
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-
-      let closeButtonElement = document.createElement('button-close');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText ='Close';
-      closeButtonElement.addEventListener('click');
-
-      let titleElement = document.createElement('h1');
-      titleElement.innerText = title;
-
-      let contentElement = document.createElement('li');
-      contentElement.innerText = text;
-
-      let imageElement = document.createElement('img');
-      imageElement.setAttribute('src', img);
-      imageElement.setAttribute('width', '304');
-      imageElement.setAttribute('height', '228');
-      imageElement.setAttribute('alt', 'pokemon image');
-
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modal.appendChild(imageElement);
-      modalContainer.appendChild(modal);
-
-      modalContainer.classList.add('is-visible');
-      
-    }
-    
-    
     pokemonRepository.loadDetails(item).then(function () {
       console.log(item);
     });
@@ -120,7 +127,7 @@ let pokemonRepository = (function () {
 
 //forEach loop that iterates over each element in the pokemonList inside the repository and use the function addListItem
 
-pokemonRepository.loadList().then(function(){ 
+pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
