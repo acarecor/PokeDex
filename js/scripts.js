@@ -69,13 +69,15 @@ let pokemonRepository = (function () {
 
   // modal that will contain the detail of each pokemon when it is selected 
   function showModal(title, text, img) {
+    modalContainer.innerHTML= '';
+    
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
-    let closeButtonElement = document.createElement('button-close');
+    let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click');
+    closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
@@ -98,18 +100,30 @@ let pokemonRepository = (function () {
     modalContainer.classList.add('is-visible');
 
   }
+
   //remove the Modal 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
   }
-
+  //to close the modal when the letter esc is clicked
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+      hideModal();
+    }
+  });
   
-
+  // function to close only if the user clicks directly on the overlay
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if(target === modalContainer) {
+      hideModal();
+    }
+  });
 
   // function for the addEventListener to log the name of each pokemon in the console when clicked 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
+      showModal(item.name, ('height:'+ item.height), item.imageUrl );
     });
   }
 
@@ -119,7 +133,8 @@ let pokemonRepository = (function () {
     addListItem,
     showDetails,
     loadList,
-    loadDetails
+    loadDetails,
+
   };
 
 })();
