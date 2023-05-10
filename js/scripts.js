@@ -76,13 +76,13 @@ let pokemonRepository = (function () {
 
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
+    closeButtonElement.innerText = 'X';
     closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
 
-    let contentElement = document.createElement('li');
+    let contentElement = document.createElement('p');
     contentElement.innerText = text;
 
     let imageElement = document.createElement('img');
@@ -123,7 +123,8 @@ let pokemonRepository = (function () {
   // function for the addEventListener to log the name of each pokemon in the console when clicked 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      showModal(item.name, ('height:'+ item.height), item.imageUrl );
+      showModal(item.name, 'height:'+ item.height, item.imageUrl );
+      console.log(item.types);
     });
   }
 
