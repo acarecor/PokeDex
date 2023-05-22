@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   // link to the  data from an external source.
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150';
-  let modalContainer = document.querySelector('#modal-container');
+  //let modalContainer = document.querySelector('#modal-container');
   // functions inside the pokemon repository:
 
   //getAll: return all items (pokemonRepository.getAll(); should return the pokemonList array)
@@ -48,7 +48,10 @@ let pokemonRepository = (function () {
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      item.types = [];
+       for (let i=0; i< details.types.length; i++){
+        item.types.push(details.types[i].type.name);
+       };
     }).catch(function (e) {
       console.error(e);
     });
@@ -56,11 +59,18 @@ let pokemonRepository = (function () {
 
   //addListItem: append the list (listItem) of  buttons (each of then content a single Pokemon)  to the parent Pokemon-list (ul)
   function addListItem(pokemon) {
-    let newElement = document.querySelector('.pokemon-list');
+    let newElement = document.querySelector('.list-group');
     let listItem = document.createElement('li');
+    //add class from bootstrap :list-group-item
+    listItem.classList.add('list-group-item');
+
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('button-class');
+    button.classList.add('btn');
+
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#exampleModal')
+
     listItem.appendChild(button);
     newElement.appendChild(listItem);
     button.addEventListener('click', () => showDetails(pokemon));
