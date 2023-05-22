@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   // link to the  data from an external source.
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150';
-  //let modalContainer = document.querySelector('#modal-container');
+
   // functions inside the pokemon repository:
 
   //getAll: return all items (pokemonRepository.getAll(); should return the pokemonList array)
@@ -49,9 +49,9 @@ let pokemonRepository = (function () {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = [];
-       for (let i=0; i< details.types.length; i++){
+      for (let i = 0; i < details.types.length; i++) {
         item.types.push(details.types[i].type.name);
-       };
+      };
     }).catch(function (e) {
       console.error(e);
     });
@@ -78,77 +78,47 @@ let pokemonRepository = (function () {
 
 
   // modal that will contain the detail of each pokemon when it is selected 
-  function showModal(title, text, img) {
-    modalContainer.innerHTML= '';
-    
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+  function showModal(item) {
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+    let modalHeader = $(".modal-header");
 
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'X';
-    closeButtonElement.addEventListener('click', hideModal);
+    modalTittle.empty();
+    modalBody.empty();
 
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
 
-    let contentElement = document.createElement('p');
-    contentElement.innerText = text;
+    let nameElement = $('<h1>' + item.name + '</h1>');
+    let imageElement = $('<img class="modal-img" style="width:50%">');
+    imageElement.attr("src", item.imageUrl);
+    let heightElement = $("<p>" + "height: " + item.height + "<p>");
+    let typesElement = $("<p>" + "types : " + item.types + "</p>");
 
-    let imageElement = document.createElement('img');
-    imageElement.setAttribute('src', img);
-    imageElement.setAttribute('width', '304');
-    imageElement.setAttribute('height', '228');
-    imageElement.setAttribute('alt', 'pokemon image');
-
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modal.appendChild(imageElement);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add('is-visible');
-
+    modalTitle.append(nameElement);
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+    modalBody.append(typesElement);
   }
 
-  //remove the Modal 
-  function hideModal() {
-    modalContainer.classList.remove('is-visible');
-  }
-  //to close the modal when the letter esc is clicked
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
-      hideModal();
-    }
+
+// function for the addEventListener to log the name of each pokemon in the console when clicked 
+function showDetails(item) {
+  pokemonRepository.loadDetails(item).then(function () {
+    showModal(item.name, 'height:' + item.height, item.imageUrl);
+    console.log(item.types);
   });
-  
-  // function to close only if the user clicks directly on the overlay
-  modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if(target === modalContainer) {
-      hideModal();
-    }
-  });
+}
 
-  // function for the addEventListener to log the name of each pokemon in the console when clicked 
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      showModal(item.name, 'height:'+ item.height, item.imageUrl );
-      console.log(item.types);
-    });
-  }
+return {
+  add,
+  getAll,
+  addListItem,
+  showDetails,
+  loadList,
+  loadDetails,
 
-  return {
-    add,
-    getAll,
-    addListItem,
-    showDetails,
-    loadList,
-    loadDetails,
+};
 
-  };
-
-})();
+}) ();
 
 
 //forEach loop that iterates over each element in the pokemonList inside the repository and use the function addListItem
