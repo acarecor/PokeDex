@@ -69,7 +69,7 @@ let pokemonRepository = (function () {
     button.classList.add('btn');
 
     button.setAttribute('data-toggle', 'modal');
-    button.setAttribute('data-target', '#exampleModal')
+    button.setAttribute('data-target', '#exampleModal');
 
     listItem.appendChild(button);
     newElement.appendChild(listItem);
@@ -81,9 +81,9 @@ let pokemonRepository = (function () {
   function showModal(item) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
-    let modalHeader = $(".modal-header");
+    let modalHeader = $('.modal-header');
 
-    modalTittle.empty();
+    modalTitle.empty();
     modalBody.empty();
 
 
@@ -103,8 +103,7 @@ let pokemonRepository = (function () {
 // function for the addEventListener to log the name of each pokemon in the console when clicked 
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
-    showModal(item.name, 'height:' + item.height, item.imageUrl);
-    console.log(item.types);
+    showModal(item);
   });
 }
 
@@ -115,6 +114,7 @@ return {
   showDetails,
   loadList,
   loadDetails,
+  showModal,
 
 };
 
