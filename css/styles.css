@@ -1,36 +1,24 @@
-* {
-  box-sizing: border-box;
-}
 
-body {
+/*body {
     background-color: rgb(39, 92, 135);
     color: black;
     margin: 50px;
     height: 0 auto;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
 }
 
-h1 {
-    background-color: red;
-    color: white;
-}
 
+*/
 
 .pokemon-list {
-    display: flexbox;
-    display: flex;
-    list-style-type:  none;
-    background-color: white;
-    margin: 20px auto;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
     justify-content: center;
-    flex-wrap: wrap;
+   
     
     
 }
-
+/*
 .button-class {
     background-color: #d6d6d6;
     display: inline-block;
@@ -58,6 +46,7 @@ h1 {
   background-color: rgb(33, 122, 205);
 }
 /*styles for the conteine*/
+/*
 #modal-container {
   display: none;
 }
@@ -71,15 +60,15 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  /* to show it above other content*/
+  /* to show it above other content
   z-index: 999;
-  /* to show it above other content */
+  /* to show it above other content 
   overflow: auto;
-  /* to center the modal */
+  /* to center the modal 
   display: grid;
   text-align: center;
 }
-
+/*
 .modal {
   margin: auto;
   display: inline-block;
@@ -123,7 +112,7 @@ h1 {
 
  /* -------Media queries---------------------------------------------------- */
   
- @media all and (max-width: 500px) {
+ /*@media all and (max-width: 500px) {
 
   .pokemon-list {
     width: auto;
@@ -146,4 +135,70 @@ h1 {
   }
 
 
+}
+*/
+
+header  {
+  height: auto;
+  
+  .nav{
+    justify-content: center;
+  }
+}
+
+
+  
+
+
+.btn{
+  background-color: #74a7fe;
+  border: 1px solid #ffffff ;
+  text-align: center;
+  width: 100%;
+  
+  
+
+
+}
+.pokemon-list{
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width:auto;
+  margin-top:auto;
+  background-color: #c4bc00;
+  border:none;
+  justify-content: center;
+
+}
+
+footer .row div {
+  background-color: black;
+  
+  height: 50px;
+}
+p{
+  color: #ebebeb;
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-title{
+  text-align: center;
+  margin-top:0;
+  text-align: center;
+  background-color: #fff;
+  color: black;
+  text-transform: uppercase
+}
+.modal-body {
+  background-color:#006d8f;
+  text-align: center;
+
+}
+.modal-footer{
+  background-color: #ebebeb;
+}
+
+#modal-button {
+  display: none;
 }
