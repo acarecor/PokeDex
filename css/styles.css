@@ -1,22 +1,26 @@
-
-
-
-
+:root{
+  --primary-color:#004a80;
+  --primary-color-lighter:#6dc0d9;
+  --secondary-color:#e61919;
+  --text-color:#fff;
+  
+  
+}
 body{
-  background-color: hsl(205, 100%, 25%);
+  background-color: hwb(205 0% 50%);
 }
 
-
-header{
-  height: auto;
-  width: 100%;
-  margin:0;
-  padding: 0;
-  
-} 
+p{
+  color: #ebebeb;
+  text-align: center;
+  margin-top: 10px;
+}
+.container-fluid{
+  padding: 0px;
+}
 .navbar-expand-lg{
     justify-content: center;
-    padding: 0;
+    background-color: #6dc0d9;
     width: 100%;
   }
 
@@ -31,11 +35,6 @@ header{
 
 }
 
-p{
-  color: #ebebeb;
-  text-align: center;
-  margin-top: 10px;
-}
 
 .list-group-item{
   background-color: hsl(205, 100%, 25%);
@@ -45,7 +44,7 @@ p{
 
 
 .btn{
-  background-color:hsl(0, 80%, 50%);
+  background-color:#e61919;
   color:#fff ;
   text-align: center;
   width: 100%;
