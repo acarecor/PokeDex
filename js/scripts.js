@@ -27,7 +27,8 @@ let pokemonRepository = (function () {
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
-    }).then(function (json) {
+    })
+    .then(function (json) {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -37,24 +38,27 @@ let pokemonRepository = (function () {
       });
     }).catch(function (e) {
       console.error(e);
-    })
+    });
   }
 
   //loadDetails function will load detailed data for a given pokemon
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = [];
-      for (let i = 0; i < details.types.length; i++) {
-        item.types.push(details.types[i].type.name);
-      };
-    }).catch(function (e) {
-      console.error(e);
-    });
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = [];
+        for (let i = 0; i < details.types.length; i++) {
+          item.types.push(details.types[i].type.name);
+        }
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
   //addListItem: append the list (listItem) of  buttons (each of then content a single Pokemon)  to the parent Pokemon-list (ul)
@@ -101,24 +105,24 @@ let pokemonRepository = (function () {
 
 
 // function for the addEventListener to log the name of each pokemon in the console when clicked 
-function showDetails(item) {
-  pokemonRepository.loadDetails(item).then(function () {
-    showModal(item);
-  });
-}
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function () {
+      showModal(item);
+    });
+  }
 
-return {
-  add,
-  getAll,
-  addListItem,
-  showDetails,
-  loadList,
-  loadDetails,
-  showModal,
+  return {
+    add,
+    getAll,
+    addListItem,
+    showDetails,
+    loadList,
+    loadDetails,
+    showModal,
 
-};
+  };
 
-}) ();
+})();
 
 
 //forEach loop that iterates over each element in the pokemonList inside the repository and use the function addListItem
