@@ -1,51 +1,54 @@
-:root{
-  --primary-color:#004a80;
-  --primary-color-lighter:#6dc0d9;
-  --secondary-color:#e61919;
-  --modal-color:#006d8f;
-  --text-primary-color:#fff;
+:root {
+  --primary-color: #004a80;
+  --primary-color-lighter: #6dc0d9;
+  --secondary-color: #e61919;
+  --modal-color: #006d8f;
+  --text-primary-color: #fff;
   --text-secondary-color: #051a21;
   --text-style-upper: uppercase;
 
-  
+
 }
-body{
+
+body {
   background-color: var(--primary-color);
 }
 
-p{
-  color:var(--text-primary-color);
+p {
+  color: var(--text-primary-color);
   text-align: center;
   margin-top: 10px;
 }
-.container-fluid{
+
+.container-fluid {
   padding: 0px;
 }
-.navbar-expand-lg{
-    justify-content: center;
-    background-color: var(--primary-color-lighter);
-    width: 100%;
-    color: var(--text-secondary-color);
-  }
+
+.navbar-expand-lg {
+  justify-content: center;
+  background-color: var(--primary-color-lighter);
+  width: 100%;
+  color: var(--text-secondary-color);
+}
 
 /*-----list-group contains the list of pokemons-------*/
-.list-group{
+.list-group {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-top: 100px ;
-  border:none;
+  margin-top: 100px;
+  border: none;
   justify-content: center;
 
 }
 
-.list-group-item{
+.list-group-item {
   background-color: var(--primary-color);
-  border:none;
+  border: none;
 }
 
-.btn{
-  background-color:var(--secondary-color);
-  color:var(--text-primary-color) ;
+.btn {
+  background-color: var(--secondary-color);
+  color: var(--text-primary-color);
   text-align: center;
   width: 100%;
   text-transform: var(--text-style-upper);
@@ -60,12 +63,12 @@ p{
   cursor: pointer;
   transform: scale(1.05);
   color: var(--text-secondary-color);
-  
+
 }
 
 .btn:active {
   background-color: rgb(191, 197, 203);
-  color:var(--text-secondary-color);
+  color: var(--text-secondary-color);
 }
 
 /*---------modal styles--------------------------------------*/
@@ -75,19 +78,20 @@ p{
 }
 
 .modal-close button {
-  width:auto;
+  width: auto;
   cursor: pointer;
 }
+
 .modal h1 {
-  margin-top:0;
+  margin-top: 0;
   text-align: center;
   background-color: var(--text-primary-color);
   color: var(--text-secondary-color);
   text-transform: var(--text-style-upper);
-  
+
 }
 
-.modal img{
+.modal img {
   display: inline-block;
   width: auto;
 }
@@ -96,61 +100,57 @@ p{
   text-align: center;
 }
 
-.modal-title{
+.modal-title {
   text-align: center;
-  margin-top:0;
+  margin-top: 0;
   text-align: center;
   background-color: var(--text-primary-color);
   color: var(--text-secondary-color);
   text-transform: var(--text-style-upper);
 }
+
 .modal-body {
-  background-color:var(--modal-color);
+  background-color: var(--modal-color);
   text-align: center;
   text-transform: var(--text-style-upper);
 
 }
-.modal-footer{
+
+.modal-footer {
   background-color: var(--text-primary-color);
 }
 
- /* -------Media queries---------------------------------------------------- */
-  
- @media all and (max-width: 500px) {
+/* -------Media queries---------------------------------------------------- */
 
-  .list-group{
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: auto;
+@media all and (max-width: 500px) {
+
+  .list-group {
+    grid-template-columns: 1fr;
   }
 
 }
+
 @media all and (min-width: 500px) and (max-width: 750px) {
   .list-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-    grid-template-rows: auto;
-  };
+    grid-template-columns: 1fr 1fr;
   }
+
+  ;
+}
 
 
 @media all and (min-width: 750px) and (max-width: 1100px) {
 
 
-  .list-group{
-    display: grid;
+  .list-group {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
   }
 }
 
-  @media all and (min-width: 1100px) and (max-width: 1400px) {
+@media all and (min-width: 1100px) and (max-width: 1400px) {
 
 
-    .list-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto;
-    }
+  .list-group {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
-
