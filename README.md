@@ -1,10 +1,10 @@
-##Pokedex App
+## Pokedex App
 
-#Objective 
+# Objective 
 
 The objective of this project was to build a small web application using HTML, CSS and JavaScript. The application should load data from an external API and allow the visualization of data points.
 
-#PokeDex
+# PokeDex
 Information and Features 
 
 Pokedex displays information (as a list) about 150 Pokemons. When the name of a pokemon is selected, a modal is displayed showing more details about it.
@@ -12,15 +12,15 @@ Pokedex displays information (as a list) about 150 Pokemons. When the name of a 
 
 #Technologies and libraries used
 
-JavaScript
-Html
-Css
-Bootstrap
-jQuery
+* JavaScript
+* Html
+* Css
+* Bootstrap
+* jQuery
 
 The application uses the PokeAPI (https://pokeapi.co/) to obtain information about Pokémon.
 
 In the following link you can see the application:
 
->https://acarecor.github.io/PokeDex/
+(https://acarecor.github.io/PokeDex/)
 
