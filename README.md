@@ -1,16 +1,26 @@
-Pokédex
+##Pokedex App
 
-Objective
+#Objective 
 
-to buil a small web application with HTML, CSS and JavaScript that loads data from an external API and enables the viewing of data points. 
+The objective of this project was to build a small web application using HTML, CSS and JavaScript. The application should load data from an external API and allow the visualization of data points.
 
-User Goals
+#PokeDex
+Information and Features 
 
-view a list of Pokemon and see more details of a particular Pokemon on request. 
+Pokedex displays information (as a list) about 150 Pokemons. When the name of a pokemon is selected, a modal is displayed showing more details about it.
+ The details shown are: the pokemon's image, height and types. 
 
-Key Features
+#Technologies and libraries used
 
-Load data from an external source (API)
-View a list of items
-On user action(e.g. by clicking on a list item), view details for that item 
+JavaScript
+Html
+Css
+Bootstrap
+jQuery
+
+The application uses the PokeAPI (https://pokeapi.co/) to obtain information about Pokémon.
+
+In the following link you can see the application:
+
+>https://acarecor.github.io/PokeDex/
 
