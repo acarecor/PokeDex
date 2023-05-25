@@ -70,7 +70,8 @@ let pokemonRepository = (function () {
 
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('btn');
+    //add class from bootstrap :btn
+    button.classList.add('btn'); 
 
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#exampleModal');
