@@ -2,6 +2,7 @@
   --primary-color: #004a80;
   --primary-color-lighter: #6dc0d9;
   --secondary-color: #e61919;
+  --secondary-color-darker:#831515;
   --modal-color: #006d8f;
   --text-primary-color: #fff;
   --text-secondary-color: #051a21;
@@ -29,6 +30,10 @@ p {
   background-color: var(--primary-color-lighter);
   width: 100%;
   color: var(--text-secondary-color);
+}
+
+#search button{
+  width:50%;
 }
 
 /*-----list-group contains the list of pokemons-------*/
@@ -59,16 +64,16 @@ p {
 .btn:hover,
 .btn:focus {
   opacity: 0.8;
-  background-color: hsl(0, 60%, 82%);
+  background-color: var(--secondary-color-darker);
   cursor: pointer;
   transform: scale(1.05);
-  color: var(--text-secondary-color);
+  color: var(--text-primary-color);
 
 }
 
 .btn:active {
   background-color: rgb(191, 197, 203);
-  color: var(--text-secondary-color);
+  color: var(--text-primary-color);
 }
 
 /*---------modal styles--------------------------------------*/
@@ -118,6 +123,7 @@ p {
 
 .modal-footer {
   background-color: var(--text-primary-color);
+  padding-left: 75%;
 }
 
 /* -------Media queries---------------------------------------------------- */

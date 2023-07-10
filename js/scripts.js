@@ -25,9 +25,7 @@ let pokemonRepository = (function () {
 
   //loadList function will fetch data from the API, 
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    })
+    return fetch(apiUrl).then((response) =>  response.json())
     .then(function (json) {
       json.results.forEach(function (item) {
         let pokemon = {
@@ -45,9 +43,7 @@ let pokemonRepository = (function () {
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then(function (details) {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
@@ -71,6 +67,7 @@ let pokemonRepository = (function () {
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     //add class from bootstrap :btn
+   // button.classList.add('pokemon-name-button');
     button.classList.add('btn'); 
 
     button.setAttribute('data-toggle', 'modal');
@@ -86,7 +83,7 @@ let pokemonRepository = (function () {
   function showModal(item) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
-    let modalHeader = $('.modal-header');
+    
 
     modalTitle.empty();
     modalBody.empty();
@@ -112,6 +109,50 @@ let pokemonRepository = (function () {
     });
   }
 
+  let searchInput = document.getElementById("search-input");
+
+  function searchPokemon() {
+    
+   let searchText = searchInput.value.toLowerCase();
+
+
+
+   // let searchedPokemons = pokemonList.filter((pokemon) => {
+     // let lowerCase = pokemon.name.toLowerCase();
+     // return lowerCase.includes(searchText);
+    //});
+
+    //cleanUIState();
+
+    //searchedPokemons.forEach((pokemon)=> {
+    //  addListItem(pokemon);
+    //});
+
+    //isSearching = true;
+    let allPokemon = document.querySelectorAll(".list-group-item");
+
+    allPokemon.forEach(function (pokemon) {
+      let pokemonText = pokemon.querySelector(".btn").innerText.toLowerCase();
+      let searchList = document.querySelector(".list-group");
+
+      if (pokemonText.includes(searchText)) {
+        searchList.classList.add("search-list");
+        pokemon.style.display = "inline-block";
+      } else {
+        pokemon.style.display = "none";
+      }
+
+      if (!searchInput.value) {
+        searchList.classList.remove("search-list");
+      }
+    });
+  }
+  
+  
+  searchInput.addEventListener("input", function () {
+    searchPokemon();
+  });
+
   return {
     add,
     getAll,
@@ -120,6 +161,8 @@ let pokemonRepository = (function () {
     loadList,
     loadDetails,
     showModal,
+    searchPokemon,
+  
 
   };
 
