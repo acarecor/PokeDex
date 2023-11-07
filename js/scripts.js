@@ -108,27 +108,13 @@ let pokemonRepository = (function () {
       showModal(item);
     });
   }
-
+//function for search a pokemon 
   let searchInput = document.getElementById("search-input");
 
   function searchPokemon() {
     
    let searchText = searchInput.value.toLowerCase();
 
-
-
-   // let searchedPokemons = pokemonList.filter((pokemon) => {
-     // let lowerCase = pokemon.name.toLowerCase();
-     // return lowerCase.includes(searchText);
-    //});
-
-    //cleanUIState();
-
-    //searchedPokemons.forEach((pokemon)=> {
-    //  addListItem(pokemon);
-    //});
-
-    //isSearching = true;
     let allPokemon = document.querySelectorAll(".list-group-item");
 
     allPokemon.forEach(function (pokemon) {
